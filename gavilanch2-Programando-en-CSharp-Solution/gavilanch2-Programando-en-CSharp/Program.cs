@@ -11,29 +11,32 @@ namespace gavilanch2_Programando_en_CSharp
             var c = 8;
             var d = 9;
 
-            Console.WriteLine("Operaciones de Relacion");
+            Console.WriteLine("Operaciones Logicas");
 
+            var booleano = true;
+            Console.WriteLine("Operacion negacion: !{0} = {1}", booleano, !booleano);
+            Console.WriteLine("");
 
-            Console.WriteLine("{0} == {1} es {2}", a, b, a == b);
-            Console.WriteLine("{0} == {0} es {1}", a, a == a);
+            Console.WriteLine("Conjuncion");
+            Console.WriteLine("{0} & {0} = {1}", true, true & true);
+            Console.WriteLine("{0} & {0} = {1}", false, false & false);
+            Console.WriteLine("{0} & {1} = {2}", true, false, true & false);
 
-            Console.WriteLine("{0} != {1} es {2}", c, d, c != d);
-            Console.WriteLine("{0} != {0} es {1}", b, b != b);
+            //&&: El segundo operando solo se evalua si el primero es true
 
-            Console.WriteLine("{0} < {1} es {2}", a, b, a < b);
-            Console.WriteLine("{0} < {1} es {2}", c, a, c < a);
+            Console.WriteLine("");
 
-            Console.WriteLine("{0} > {1} es {2}", a, b, a > b);
-            Console.WriteLine("{0} > {1} es {2}", d, b, d > b);
+            Console.WriteLine("Disyuncion exclusiva");
+            Console.WriteLine("{0} ^ {0} = {1}", true, true ^ true);
+            Console.WriteLine("{0} ^ {0} = {1}", false, false ^ false);
+            Console.WriteLine("{0} ^ {1} = {2}", true, false, true ^ false);
 
-            Console.WriteLine("{0} <= {1} es {2}", c, d, c <= d);
-            Console.WriteLine("{0} <= {0} es {1}", b, b <= b);
+            Console.WriteLine("");
 
-            Console.WriteLine("{0} >= {1} es {2}", c, d, c >= d);
-            Console.WriteLine("{0} >= {0} es {1}", a, a >= a);
-
-            Console.WriteLine("{0} is int es {1}", a, a is int);
-            Console.WriteLine("{0} is string es {1}", a, a is string);
+            Console.WriteLine("Disyunción Inclusiva");
+            Console.WriteLine("{0} | {0} = {1}", true, true | true);
+            Console.WriteLine("{0} | {1} = {2}", true, false, true | false);
+            Console.WriteLine("{0} | {1} = {2}", false, false, false | false);
 
             Console.Read();
         }
