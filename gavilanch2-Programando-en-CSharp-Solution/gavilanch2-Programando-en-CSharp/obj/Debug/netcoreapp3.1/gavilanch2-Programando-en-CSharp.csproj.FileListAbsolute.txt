@@ -1,0 +1,14 @@
+D:\App-2022\gavilanch2-Programando-en-CSharp\gavilanch2-Programando-en-CSharp-Solution\gavilanch2-Programando-en-CSharp\bin\Debug\netcoreapp3.1\gavilanch2-Programando-en-CSharp.exe
+D:\App-2022\gavilanch2-Programando-en-CSharp\gavilanch2-Programando-en-CSharp-Solution\gavilanch2-Programando-en-CSharp\bin\Debug\netcoreapp3.1\gavilanch2-Programando-en-CSharp.deps.json
+D:\App-2022\gavilanch2-Programando-en-CSharp\gavilanch2-Programando-en-CSharp-Solution\gavilanch2-Programando-en-CSharp\bin\Debug\netcoreapp3.1\gavilanch2-Programando-en-CSharp.runtimeconfig.json
+D:\App-2022\gavilanch2-Programando-en-CSharp\gavilanch2-Programando-en-CSharp-Solution\gavilanch2-Programando-en-CSharp\bin\Debug\netcoreapp3.1\gavilanch2-Programando-en-CSharp.runtimeconfig.dev.json
+D:\App-2022\gavilanch2-Programando-en-CSharp\gavilanch2-Programando-en-CSharp-Solution\gavilanch2-Programando-en-CSharp\bin\Debug\netcoreapp3.1\gavilanch2-Programando-en-CSharp.dll
+D:\App-2022\gavilanch2-Programando-en-CSharp\gavilanch2-Programando-en-CSharp-Solution\gavilanch2-Programando-en-CSharp\bin\Debug\netcoreapp3.1\gavilanch2-Programando-en-CSharp.pdb
+D:\App-2022\gavilanch2-Programando-en-CSharp\gavilanch2-Programando-en-CSharp-Solution\gavilanch2-Programando-en-CSharp\obj\Debug\netcoreapp3.1\gavilanch2-Programando-en-CSharp.csproj.AssemblyReference.cache
+D:\App-2022\gavilanch2-Programando-en-CSharp\gavilanch2-Programando-en-CSharp-Solution\gavilanch2-Programando-en-CSharp\obj\Debug\netcoreapp3.1\gavilanch2-Programando-en-CSharp.GeneratedMSBuildEditorConfig.editorconfig
+D:\App-2022\gavilanch2-Programando-en-CSharp\gavilanch2-Programando-en-CSharp-Solution\gavilanch2-Programando-en-CSharp\obj\Debug\netcoreapp3.1\gavilanch2-Programando-en-CSharp.AssemblyInfoInputs.cache
+D:\App-2022\gavilanch2-Programando-en-CSharp\gavilanch2-Programando-en-CSharp-Solution\gavilanch2-Programando-en-CSharp\obj\Debug\netcoreapp3.1\gavilanch2-Programando-en-CSharp.AssemblyInfo.cs
+D:\App-2022\gavilanch2-Programando-en-CSharp\gavilanch2-Programando-en-CSharp-Solution\gavilanch2-Programando-en-CSharp\obj\Debug\netcoreapp3.1\gavilanch2-Programando-en-CSharp.csproj.CoreCompileInputs.cache
+D:\App-2022\gavilanch2-Programando-en-CSharp\gavilanch2-Programando-en-CSharp-Solution\gavilanch2-Programando-en-CSharp\obj\Debug\netcoreapp3.1\gavilanch2-Programando-en-CSharp.dll
+D:\App-2022\gavilanch2-Programando-en-CSharp\gavilanch2-Programando-en-CSharp-Solution\gavilanch2-Programando-en-CSharp\obj\Debug\netcoreapp3.1\gavilanch2-Programando-en-CSharp.pdb
+D:\App-2022\gavilanch2-Programando-en-CSharp\gavilanch2-Programando-en-CSharp-Solution\gavilanch2-Programando-en-CSharp\obj\Debug\netcoreapp3.1\gavilanch2-Programando-en-CSharp.genruntimeconfig.cache
