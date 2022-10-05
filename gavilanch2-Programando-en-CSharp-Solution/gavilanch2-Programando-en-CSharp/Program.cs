@@ -6,19 +6,17 @@ namespace gavilanch2_Programando_en_CSharp
     {
         static void Main(string[] args)
         {
-            //Instanciando la clase "Persona"
-            Persona p = new Persona();
-            p.Nombre = "Lorena";
-            p.Edad = 35;
-            p.Direccion = "Avenida Siempre Viva";
-            p.MostrarDatosEnConsola();
+            //string Nombre = "Felipe";
+            //VAR: Infiere el tipo de la variable a partir del valor
+            var Nombre = "Felipe";
+            var mes = 5;
+            var procesoTerminado = false;
 
+            string direccion;
+            //var nuevaDireccion; (ERROR: No tiene un valor del cual se puede inferir su tipo)
             //Instanciando la clase "Persona"
-            Persona p2 = new Persona();
-            p2.Nombre = "Mario";
-            p2.Edad = 19;
-            p2.Direccion = "Av. Winston Churchill";
-            p2.MostrarDatosEnConsola();
+            var p = new Persona();
+            p.Nombre = "Felipe";
 
             Console.Read();
         }
@@ -36,64 +34,5 @@ namespace gavilanch2_Programando_en_CSharp
                 Console.WriteLine(output);
             }
         }
-
     }
-
-    /*
-    class Carro
-    {
-        public string Modelo;
-        public int Anio;
-        public decimal Precio;
-        //...(Más variables)
-
-        public void Encender()
-        {
-            //Codigo que enciende el carro
-        }
-        //...(más métodos)
-    }
-    */
-
-    /*
-    class Factura
-    {
-        public int Id;
-        public DateTime Creacion;
-        public decimal Total;
-        public string Cliente;
-        public string Facturador;
-        //...Otras variables (atributos)
-    }
-
-    class ProcesarFactura
-    {
-        public void Reversar (int Id)
-        {
-            // Codigo reversa de una factura
-        }
-
-        public Factura ConsolidarFacturasPendientes()
-        {
-            // Codigo ConsolidaFacturas
-        }
-
-        //...Otros metodos
-    }
-
-    class RepositorioFacturas
-    {
-        public Factura ObtenerPorId(int Id)
-        {
-            // Codigo obtiene factura por Id
-        }
-
-        public void Guardar(Factura factura)
-        {
-            // Codigo guarda factura en una BD
-        }
-
-        // ... Otros metodos
-    }
-    */
 }
