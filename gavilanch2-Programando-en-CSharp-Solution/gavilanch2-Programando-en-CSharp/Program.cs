@@ -7,21 +7,35 @@ namespace gavilanch2_Programando_en_CSharp
         //BLOQUE: El interior entre dos llaves {}
         static void Main(string[] args)
         {
-            //Ejemplos de declaracion de una variable
-            int mes;
-            string nombre;
-            DateTime fechaEntrada;
-            bool procesoTerminado;
+            EscribeHolaMundo();
+            EscribeEnLaConsola("Me llamo Felipe");
+            IdentificadorDelMetodo("valor1", "valor2", 6);
+            int sumando1 = 5;
+            int sumando2 = 7;
+            int resultado = Suma(sumando1, sumando2);
+            Console.WriteLine(resultado);
+            Console.Read();
+        }
 
-            //Ejemplos de inicialización de una variable
-            mes = 7;
-            nombre = "Felipe";
-            procesoTerminado = true;
-            procesoTerminado = false;
-            
-            //Podemos inicializar y declara en una misma linea
-            string direccion = "Calle 123";
-            string direccionNueva= "Nueva Calle";
+        static int Suma(int a, int b)
+        {
+            return a + b;
+        }
+
+        static void EscribeHolaMundo()
+        {
+            Console.WriteLine("Hola mundo");
+        }
+
+        static void EscribeEnLaConsola(string valor)
+        {
+            Console.WriteLine(valor);
+        }
+
+        //Sintaxis de un metodo static void
+        static void IdentificadorDelMetodo(string parametro1, string parametro2, int etc)
+        {
+
         }
     }
 }
