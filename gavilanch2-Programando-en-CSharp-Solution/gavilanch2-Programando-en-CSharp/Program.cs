@@ -4,38 +4,32 @@ namespace gavilanch2_Programando_en_CSharp
 {
     class Program
     {
-        //BLOQUE: El interior entre dos llaves {}
         static void Main(string[] args)
         {
-            EscribeHolaMundo();
-            EscribeEnLaConsola("Me llamo Felipe");
-            IdentificadorDelMetodo("valor1", "valor2", 6);
-            int sumando1 = 5;
-            int sumando2 = 7;
-            int resultado = Suma(sumando1, sumando2);
-            Console.WriteLine(resultado);
+            PreguntaNombreYEdad();
             Console.Read();
         }
 
-        static int Suma(int a, int b)
+        /// <summary>
+        /// Hacer un programa que le pregunte al usuario su nombre y edad, posterior a eso debe mostrar un mensaje en pantalla con el nombre del usuario y su edad.
+        /// Pista: Utilice Console.ReadLine para leer la información que ingresa el usuario
+        /// Pista 2: Utilice int.Parse para convertir de tipo string a tipo int
+        /// </summary>
+        /// <param name="args"></param>
+        static void PreguntaNombreYEdad()
         {
-            return a + b;
-        }
+            string nombre;
+            int edad;
 
-        static void EscribeHolaMundo()
-        {
-            Console.WriteLine("Hola mundo");
-        }
+            Console.Write("Ingrese su nombre: ");
+            nombre = Console.ReadLine();
 
-        static void EscribeEnLaConsola(string valor)
-        {
-            Console.WriteLine(valor);
-        }
+            Console.Write("Ingrese su edad: ");
+            edad = int.Parse(Console.ReadLine());
 
-        //Sintaxis de un metodo static void
-        static void IdentificadorDelMetodo(string parametro1, string parametro2, int etc)
-        {
-
+            //FORMAT: Nos permite insertar valores en un string de una manera sencilla
+            string output = string.Format("Su nombre es {0} y tiene {1} años de edad", nombre, edad);
+            Console.WriteLine(output);
         }
     }
 }
