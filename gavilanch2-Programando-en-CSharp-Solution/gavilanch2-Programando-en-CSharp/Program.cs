@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace gavilanch2_Programando_en_CSharp
 {
@@ -6,45 +7,19 @@ namespace gavilanch2_Programando_en_CSharp
     {
         static void Main(string[] args)
         {
-
-            string nombre = "Felipess";
-            string nombreMayuscula = "FELIPESS";
-            string frase = "Juan y Jose son amigos";
-
-            var longitudNombre = nombre.Length;
-
-            Console.WriteLine(longitudNombre);
-            if (nombre.Length == 6)
+            for (int i = 0; i < 10; i++)
             {
-                Console.WriteLine(frase.Length);
-            }
-            else if (longitudNombre == 7)
-            {
-                Console.WriteLine("Longitud es 7");
-            }
-            else if (longitudNombre == 8)
-            {
-                Console.WriteLine("Longitud es 8");
-                Console.WriteLine("Aqui estamos");
-                Console.WriteLine("C# es cool");
-                ComparaNombres(nombre, nombreMayuscula);
-
-            }
-            else
-            {
-                Console.WriteLine(nombre == nombreMayuscula);
+                Console.WriteLine(i + 1);
             }
 
+            List<string> nombres = new List<string>() { "felipe", "maria", "leonardo", "josefina" };
+
+            for (int i = 0; i < nombres.Count; i++)
+            {
+                Console.WriteLine(nombres[i].ToUpper());
+            }
 
             Console.Read();
-        }
-
-        private static void ComparaNombres(string nombre, string nombreMayuscula)
-        {
-            if (nombre.ToUpper() == nombreMayuscula.ToUpper())
-            {
-                Console.WriteLine("Los nombres son iguales");
-            }
         }
     }
 }
