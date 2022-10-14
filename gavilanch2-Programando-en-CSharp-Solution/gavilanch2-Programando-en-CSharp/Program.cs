@@ -10,16 +10,30 @@ namespace gavilanch2_Programando_en_CSharp
 
             List<string> nombres = new List<string>() { "felipe", "maria", "leonardo", "josefina" };
 
-            //for (int i = 0; i < nombres.Count; i++)
+            //for (int i = 0; i < 10; i++)
             //{
-            //    Console.WriteLine(nombres[i].ToUpper());
+            //    if (i == 5)
+            //    {
+            //        //break;
+            //        continue;
+            //    }
+            //    Console.WriteLine(i);
             //}
 
+            //BREAK: Para salir del bucle
+            //CONTINUE: Ignora todo el resto de código, y continua con el bucle
+
             int j = 0;
-            while (j < nombres.Count)
+            while (true)
             {
-                Console.WriteLine(nombres[j].ToUpper());
+                Console.WriteLine(j);
                 j++;
+                Console.WriteLine("Presione la tecla C si quiere cancelar");
+                var respuestaUsuario = Console.ReadLine();
+                if (respuestaUsuario.ToUpper() == "C")
+                {
+                    break;
+                }
             }
 
             Console.Read();
