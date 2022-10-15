@@ -10,6 +10,7 @@ namespace gavilanch2_Programando_en_CSharp
         {
             string estatusOperacion = "K15";
 
+            //Este codigo ejectura la acción según el estatus de la operación (COMENTARIO INNECESARIO o REDUNDANTE)
             if (estatusOperacion == EstatusOperaciones._exitoso)
             {
                 // ...
@@ -23,7 +24,20 @@ namespace gavilanch2_Programando_en_CSharp
                 // ...
             }
 
+            Suma(4, 5);
+
             Console.Read();
+        }
+
+        /// <summary>
+        /// Metodo que sirve para sumar
+        /// </summary>
+        /// <param name="a">Sumando 1</param>
+        /// <param name="b">Sumando 2</param>
+        /// <returns>Retorna la suma de a y b</returns>
+        private static int Suma(int a, int b)
+        {
+            return a + b;
         }
     }
 }
