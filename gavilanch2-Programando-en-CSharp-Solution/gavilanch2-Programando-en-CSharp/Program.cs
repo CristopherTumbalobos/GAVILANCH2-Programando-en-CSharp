@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Operaciones;
 
 namespace gavilanch2_Programando_en_CSharp
 {
@@ -23,14 +24,6 @@ namespace gavilanch2_Programando_en_CSharp
             }
 
             Console.Read();
-        }
-
-        //Por si los Estatus deben ser accesibles para cualquiera
-        public static class EstatusOperaciones
-        {
-            public const string _exitoso = "K120";
-            public const string _clienteNoEncontrado = "P4";
-            public const string _errorDelSistema = "K15";
         }
     }
 }
