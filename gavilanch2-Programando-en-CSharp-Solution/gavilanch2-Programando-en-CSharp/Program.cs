@@ -3,40 +3,54 @@ using System.Collections.Generic;
 
 namespace gavilanch2_Programando_en_CSharp
 {
+    //ENUM: Para evitar los números mágicos (con significado implícito)
+    enum EstatusOperacion
+    {
+        Exitoso = 1,
+        ClienteNoEncontrado = 2,
+        ErrorDeSistema = 5,
+    }
+
     class Program
     {
         static void Main(string[] args)
         {
+            int estatusOperacion = 5;
 
-            List<string> nombres = new List<string>() { "felipe", "maria", "leonardo", "josefina" };
-
-            //for (int i = 0; i < 10; i++)
-            //{
-            //    if (i == 5)
-            //    {
-            //        //break;
-            //        continue;
-            //    }
-            //    Console.WriteLine(i);
-            //}
-
-            //BREAK: Para salir del bucle
-            //CONTINUE: Ignora todo el resto de código, y continua con el bucle
-
-            int j = 0;
-            while (true)
+            //(int): Casteandolo a int
+            if (estatusOperacion == (int)EstatusOperacion.Exitoso)
             {
-                Console.WriteLine(j);
-                j++;
-                Console.WriteLine("Presione la tecla C si quiere cancelar");
-                var respuestaUsuario = Console.ReadLine();
-                if (respuestaUsuario.ToUpper() == "C")
-                {
-                    break;
-                }
+                // ...
+            }
+            else if (estatusOperacion == (int)EstatusOperacion.ClienteNoEncontrado)
+            {
+                // ...
+            }
+            else if (estatusOperacion == (int)EstatusOperacion.ErrorDeSistema)
+            {
+                // ...
             }
 
             Console.Read();
         }
+
+        private static void OtroMetodo()
+        {
+            int estatusOperacion = 5;
+
+            if (estatusOperacion == (int)EstatusOperacion.Exitoso)
+            {
+                // ...
+            }
+            else if (estatusOperacion == (int)EstatusOperacion.ClienteNoEncontrado)
+            {
+                // ...
+            }
+            else if (estatusOperacion == (int)EstatusOperacion.ErrorDeSistema)
+            {
+                // ...
+            }
+        }
+
     }
 }
