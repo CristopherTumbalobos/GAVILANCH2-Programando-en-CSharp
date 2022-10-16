@@ -8,26 +8,16 @@ namespace gavilanch2_Programando_en_CSharp
     {
         static void Main(string[] args)
         {
-            var persona = new Persona() { nombre = "Felipe", edad = 90 };
-            persona = null;
+            int a = 1;
+            int b = 2;
+            List<int> numeros = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8 };
 
-            Nullable<int> numero = 45;
-            numero = null;
-
-            DateTime? fechaDeNacimiento = null;
-            fechaDeNacimiento = new DateTime(2015, 1, 1);
-
-            //HasValue: Verifica si tiene un valor
-            if (numero.HasValue)
+            for (int i = 0; i < 1000; i++)
             {
-                Console.WriteLine("El numero tiene valor");
-            }
-
-            if (fechaDeNacimiento.HasValue)
-            {
-                //Value: Valor de la variable
-                CalcularEdad(fechaDeNacimiento.Value);
-                Console.WriteLine("La fecha tiene valor");
+                if (i == 999)
+                {
+                    throw new ApplicationException("No me gusta el 5");
+                }
             }
 
             Console.Read();
