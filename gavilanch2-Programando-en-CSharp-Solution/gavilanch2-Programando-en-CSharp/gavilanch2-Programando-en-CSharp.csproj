@@ -6,4 +6,14 @@
     <RootNamespace>gavilanch2_Programando_en_CSharp</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Ejercicios-Modulo-I\Ejercicio3.cs" />
+    <Compile Remove="Ejercicios-Modulo-I\Ejercicio4.cs" />
+    <Compile Remove="Ejercicios-Modulo-I\Ejercicio5.cs" />
+    <Compile Remove="Ejercicios-Modulo-I\Ejercicio6.cs" />
+    <Compile Remove="Ejercicios-Modulo-I\Ejercicio7.cs" />
+    <Compile Remove="Ejercicios-Modulo-I\Ejercicio8.cs" />
+    <Compile Remove="Ejercicios-Modulo-I\Ejercicio9.cs" />
+  </ItemGroup>
+
 </Project>
