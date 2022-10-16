@@ -8,36 +8,40 @@ namespace gavilanch2_Programando_en_CSharp
     {
         static void Main(string[] args)
         {
-            string estatusOperacion = "K15";
+            var persona = new Persona() { nombre = "Felipe", edad = 90 };
+            persona = null;
 
-            //Este codigo ejectura la acción según el estatus de la operación (COMENTARIO INNECESARIO o REDUNDANTE)
-            if (estatusOperacion == EstatusOperaciones._exitoso)
+            Nullable<int> numero = 45;
+            numero = null;
+
+            DateTime? fechaDeNacimiento = null;
+            fechaDeNacimiento = new DateTime(2015, 1, 1);
+
+            //HasValue: Verifica si tiene un valor
+            if (numero.HasValue)
             {
-                // ...
-            }
-            else if (estatusOperacion == EstatusOperaciones._clienteNoEncontrado)
-            {
-                // ...
-            }
-            else if (estatusOperacion == EstatusOperaciones._errorDelSistema)
-            {
-                // ...
+                Console.WriteLine("El numero tiene valor");
             }
 
-            Suma(4, 5);
+            if (fechaDeNacimiento.HasValue)
+            {
+                //Value: Valor de la variable
+                CalcularEdad(fechaDeNacimiento.Value);
+                Console.WriteLine("La fecha tiene valor");
+            }
 
             Console.Read();
         }
 
-        /// <summary>
-        /// Metodo que sirve para sumar
-        /// </summary>
-        /// <param name="a">Sumando 1</param>
-        /// <param name="b">Sumando 2</param>
-        /// <returns>Retorna la suma de a y b</returns>
-        private static int Suma(int a, int b)
+        public static int CalcularEdad(DateTime fechaNacimiento)
         {
-            return a + b;
+            return -1;
+        }
+
+        class Persona
+        {
+            public string nombre;
+            public int edad;
         }
     }
 }
