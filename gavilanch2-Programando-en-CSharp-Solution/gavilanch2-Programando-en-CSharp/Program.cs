@@ -8,9 +8,10 @@ namespace gavilanch2_Programando_en_CSharp
     {
         static void Main(string[] args)
         {
-            var v1 = new Vector(new List<int> { 3, 4, 8 });
-            var v2 = new Vector(new List<int> { 1, 2 });
+            var v1 = new Vector(new List<int> { 3, 4, 5 });
+            var v2 = new Vector(new List<int> { 1, 2, -9 });
             Vector vectorSuma = v1.Suma(v2);
+            Vector vectorSuma2 = v1 + v2;
             Console.Read();
 
         }
@@ -47,7 +48,7 @@ namespace gavilanch2_Programando_en_CSharp
             _componentes = componentes;
         }
 
-        //METODO: Bloque de código que podemos ejecutar varias veces
+        //METODO 1
         public Vector Suma(Vector v2)
         {
             if (Dimension != v2.Dimension)
@@ -59,12 +60,29 @@ namespace gavilanch2_Programando_en_CSharp
 
             for (int i = 0; i < Dimension; i++)
             {
-                //this: Para hacer referencia a la clase en la que te encuentras
-                //this[i]: Utiliza el indexador para traer el enesimo elemento
                 resultado.Add(this[i] + v2[i]);
             }
 
             return new Vector(resultado);
+        }
+
+        //METODO 2
+        public static Vector operator +(Vector vector1, Vector vector2)
+        {
+            //Principio: NO repetir código, reutilizando código
+            return vector1.Suma(vector2);
+        }
+
+        //METODO 3
+        public static int operator *(Vector vector1, Vector vector2)
+        {
+            throw new NotImplementedException();
+        }
+
+        //METODO 4
+        public static Vector operator ++(Vector vector1)
+        {
+            throw new NotImplementedException();
         }
     }
 }
