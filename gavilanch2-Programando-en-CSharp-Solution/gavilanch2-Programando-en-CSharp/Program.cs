@@ -8,29 +8,39 @@ namespace gavilanch2_Programando_en_CSharp
     {
         static void Main(string[] args)
         {
-            var v = new Vector();
             var v2 = new Vector(new List<int> { 1, 2 });
+            Console.WriteLine(v2.Componentes.ToString());
+            Console.WriteLine(v2.Dimension);
+            Console.WriteLine(v2.Nombre);
+            Console.Read();
         }
     }
 
     class Vector
     {
-        //Constructor: Para instanciar una clase
-        //Constructor: Primer método que se ejecuta
-        //Constructor: Tiene el mismo nombre que la clase
-        //CONTRUCTOR 1
-        public Vector()
+        //CAMPO: Variable declarada a nivel de clase
+        private List<int> _componentes;
+
+        //PROPIEDADES: Método especial que devuelve y asigna un valor
+        //GET: Obtener un valor
+        //SET: Asignar un valor
+        public List<int> Componentes
         {
-            //...
+            get
+            {
+                return _componentes;
+            }
         }
 
-        //CAMPO
-        private List<int> _Valores;
+        public int Dimension { get { return _componentes.Count; } }
 
-        //CONSTRUCTOR 2
-        public Vector(List<int> valores)
+        public string Nombre { get; private set; }
+
+        //CONSTRUCTOR
+        public Vector(List<int> componentes)
         {
-            _Valores = valores;
+            _componentes = componentes;
+            Nombre = "Vector 1";
         }
     }
 }
