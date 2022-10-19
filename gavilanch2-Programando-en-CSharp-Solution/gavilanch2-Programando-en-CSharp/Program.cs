@@ -8,23 +8,24 @@ namespace gavilanch2_Programando_en_CSharp
     {
         static void Main(string[] args)
         {
-            double numero1 = 5;
-            double numero2 = 7;
-            double numero3 = 10;
-            double promedio = CalcularPromedio(4, 5, 6, 7, 3, 5, 7);
-            Console.WriteLine(promedio);
+            metodo1("valor1");
+            metodo1("valor1", "valor2");
+            Console.WriteLine("");
+            metodo1("Felipe", "Mario");
+            Console.Read();
         }
 
-        //int[]: Arreglo de enteros
-        private static double CalcularPromedio(params int[] numeros)
+        private static void metodo1(string v1)
         {
-            double suma = 0.0;
-            foreach (var numero in numeros)
-            {
-                //suma = suma + numero;
-                suma += numero;
-            }
-            return suma / numeros.Length;
+            metodo1(v1, "valor2");
+        }
+
+        //Los valores pueden ser peligrosos, si lo tienes en otra libreria (assembly o dll), para que el cambio funcione todos los proyectos deberan ser recompilados. 
+
+        private static void metodo1(string v1, string v2 = "valor2")
+        {
+            Console.WriteLine(v1);
+            Console.WriteLine(v2);
         }
     }
 }
