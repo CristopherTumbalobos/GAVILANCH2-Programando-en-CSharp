@@ -12,12 +12,17 @@ namespace gavilanch2_Programando_en_CSharp
             var v2 = new Vector(new List<int> { 1, 2, -9 });
             Vector vectorSuma = v1.Suma(v2);
             Vector vectorSuma2 = v1 + v2;
+            v1++;
             Console.Read();
 
         }
     }
 
-    class Vector
+    //CLASS: Tipo de referencia que podemos definir
+    //STRUCT: Tipo de valor que podemos definir, la usamos cuando nuestras instancias tengan un corto tiempo de vida, tiene poca data, problemas de performace cuando se castea muchas veces, se manejan mejor un arreglo de tipo de valor que de tipo de referencia.
+
+
+    struct Vector
     {
         //CAMPO
         private List<int> _componentes;
@@ -48,6 +53,22 @@ namespace gavilanch2_Programando_en_CSharp
             _componentes = componentes;
         }
 
+        //METODO 2
+        public static Vector operator +(Vector vector1, Vector vector2)
+        {
+            return vector1.Suma(vector2);
+        }
+
+        public static int operator *(Vector vector1, Vector vector2)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static Vector operator ++(Vector vector1)
+        {
+            throw new NotImplementedException();
+        }
+
         //METODO 1
         public Vector Suma(Vector v2)
         {
@@ -64,25 +85,6 @@ namespace gavilanch2_Programando_en_CSharp
             }
 
             return new Vector(resultado);
-        }
-
-        //METODO 2
-        public static Vector operator +(Vector vector1, Vector vector2)
-        {
-            //Principio: NO repetir código, reutilizando código
-            return vector1.Suma(vector2);
-        }
-
-        //METODO 3
-        public static int operator *(Vector vector1, Vector vector2)
-        {
-            throw new NotImplementedException();
-        }
-
-        //METODO 4
-        public static Vector operator ++(Vector vector1)
-        {
-            throw new NotImplementedException();
         }
     }
 }
