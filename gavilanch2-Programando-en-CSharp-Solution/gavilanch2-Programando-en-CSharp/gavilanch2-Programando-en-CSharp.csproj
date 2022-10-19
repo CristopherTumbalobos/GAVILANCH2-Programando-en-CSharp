@@ -16,8 +16,4 @@
     <Compile Remove="Ejercicios-Modulo-I\Ejercicio9.cs" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\ClassLibrary1\ClassLibrary1.csproj" />
-  </ItemGroup>
-
 </Project>
