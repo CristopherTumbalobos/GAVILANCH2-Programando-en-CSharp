@@ -8,24 +8,41 @@ namespace gavilanch2_Programando_en_CSharp
     {
         static void Main(string[] args)
         {
-            metodo1("valor1");
-            metodo1("valor1", "valor2");
-            Console.WriteLine("");
-            metodo1("Felipe", "Mario");
+            //OBJETO 1
+            var e1 = new Empresa();
+            e1._NombreLegal = "Primera Empresa";
+            e1._Direccion = "Primera Direccion";
+
+            //OBJETO 2
+            var e2 = new Empresa();
+            e2._NombreLegal = "Segunda Empresa";
+            e2._Direccion = "Segunda Direccion";
+
+            //Contexto.metodo1(Objeto);
+            e1.metodo1(e2);
+            e2.metodo1(e1);
+            e1.metodo1(e1);
+
             Console.Read();
         }
 
-        private static void metodo1(string v1)
+        class Empresa
         {
-            metodo1(v1, "valor2");
-        }
+            //Campos
+            public string _NombreLegal;
+            public string _Direccion;
 
-        //Los valores pueden ser peligrosos, si lo tienes en otra libreria (assembly o dll), para que el cambio funcione todos los proyectos deberan ser recompilados. 
-
-        private static void metodo1(string v1, string v2 = "valor2")
-        {
-            Console.WriteLine(v1);
-            Console.WriteLine(v2);
+            //Metodo
+            public void metodo1(Empresa empresa2)
+            {
+                //this: Sirve para indicar que estamos trabajando con miembros de la clase en el contexto que estamos.
+                var this_nombreLegal = this._NombreLegal;
+                var this_direccion = this._Direccion;
+                var miNombreLegal = _NombreLegal;//Igual a this._NombreLegal
+                var miDireccion = _Direccion;//Igual a this._Direccion
+                var empresa2_nombreLegal = empresa2._NombreLegal;
+                var empresa2_direccion = empresa2._Direccion;
+            }
         }
     }
 }
