@@ -8,62 +8,63 @@ namespace gavilanch2_Programando_en_CSharp
     {
         static void Main(string[] args)
         {
-            var iteradordeLista = new IteradorDeLista();
-            iteradordeLista.Lista = new List<int>() { 1, 2, 3 };
-            iteradordeLista.EscribirLista();
+            //Lista que maneje ambos animales
+            //Herencia: Ambas clases provienen de un mismo tipo
+            List<Animal> animales = new List<Animal>();
+            //Polimorfismo: Nos permite utilizar clases derivadas en lugar de la clase base
+            animales.Add(new Vaca("Roberto"));
+            animales.Add(new Oveja("Mario"));
 
-            iteradordeLista.Lista = null;
-            iteradordeLista.EscribirLista();
+            foreach (var animal in animales)
+            {
+                animal.HacerRuido();
+            }
 
             Console.Read();
         }
     }
 
-    class IteradorDeLista
+    class Animal
     {
-        //Constructor que inicializa un campo
-        public IteradorDeLista()
+        //Propiedad
+        public string Nombre { get; set; }
+
+        //virtual: Las clases hijos pueden sobrescribir el metodo virtual
+        public virtual void HacerRuido()
         {
-            _lista = new List<int>();
+            Console.WriteLine("{0} hace ruido", Nombre);
         }
+    }
 
-        //Campo privado
-        private List<int> _lista;
-
-        //Encapsulamiento
-        //Permite manejar la recuperacion y escritura de variables o campos privados
-        //Propiedad: Nos permite encapsular nuestros campos
-        public List<int> Lista
+    class Vaca : Animal
+    {
+        public Vaca(string nombre)
         {
-            get
-            { return _lista; }
-            set
-            {
-                if (value != null)
-                {
-                    _lista = value;
-                }
-                else
-                {
-                    Lista = new List<int>();
-                }
-            }
+            Nombre = nombre;
         }
-
-        public void EscribirLista()
+        //override: Sobreescribir método "HacerRuido"
+        public override void HacerRuido()
         {
-            foreach (var item in _lista)
-            {
-                Console.WriteLine(item);
-            }
+            Console.WriteLine("{0} dice muuu", Nombre);
         }
-
-        public void EscribirLista2()
+        public void Limpiar()
         {
-            foreach (var item in _lista)
-            {
-                Console.WriteLine(item);
-            }
+            Console.WriteLine("La vaca {0} ha sido limpiada", Nombre);
+        }
+    }
+    class Oveja : Animal
+    {
+        public Oveja(string nombre)
+        {
+            Nombre = nombre;
+        }
+        //public void HacerRuido()
+        //{
+        //    Console.WriteLine("{0} dice veeeh", Nombre);
+        //}
+        public void Limpiar()
+        {
+            Console.WriteLine("La oveja {0} ha sido trasquilada", Nombre);
         }
     }
 }
