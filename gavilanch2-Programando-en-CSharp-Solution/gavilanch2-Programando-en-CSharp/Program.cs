@@ -8,26 +8,58 @@ namespace gavilanch2_Programando_en_CSharp
     {
         static void Main(string[] args)
         {
-            5.ElevadoALa(3);
+            SumaDesdeProgram(1, 3); //SumaDesdeProgram no es static
 
-            Console.WriteLine(5.ElevadoALa(3));
-            Console.WriteLine(7.ElevadoALa(2));
-            Console.WriteLine(15.Doble());
+            var p = new Program();
+            p.SumaDesdeProgram(1, 2);
 
-            Console.Read();
+            Program.SumaDesdeProgram(1, 3); //SumaDesdeProgram no es static
+
+            Matematicas.SumaDesdeMatematicas(1, 3);
+
+            var factura = new Factura();
+            factura.SumaDesdeFactura(1, 2);
+            Factura.SumaDesdeFactura(1, 2);
+
+            //Cuando SI es static podemos acceder desde la clase.metodo, no podemos instanciarla
+            //Cuando NO es static podemos acceder a partir de un instancia
+
+        }
+        public int SumaDesdeProgram(int sumando1, int sumando2)
+        {
+            return sumando1 + sumando2;
         }
     }
 
-    public static class IntegerExtensionMethods
+    static class Matematicas
     {
-        public static double ElevadoALa(this int valor, int exponente)
+        const double PI = 3.1415;
+        public static int SumaDesdeMatematicas (int sumando1, int sumando2)
         {
-            return Math.Pow(valor, exponente);
+            return sumando1 + sumando2;
         }
 
-        public static double Doble(this int valor)
+        public static double AreaDelCirculo(int radio)
         {
-            return valor * 2;
+            return radio * radio * PI;
+        }
+    }
+
+    class Factura //Decidimos que no sea estatica porque requiere almacenar data, para cada factura
+    {
+        public int Id { get; set; }
+        public decimal Monto { get; set; }
+        public static int SumaDesdeFactura(int sumando1, int sumando2)
+        {
+            return sumando1 + sumando2;
+        }
+    }
+
+    class FacturaRepositorio
+    {
+        public void GuardarEnBaseDeDatos(Factura factura)
+        {
+            // Codigo para guardar la factura en base de datos
         }
     }
 }
