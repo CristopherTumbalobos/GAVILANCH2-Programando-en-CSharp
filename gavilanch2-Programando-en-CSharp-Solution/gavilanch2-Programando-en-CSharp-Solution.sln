@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32901.82
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gavilanch2-Programando-en-CSharp", "gavilanch2-Programando-en-CSharp\gavilanch2-Programando-en-CSharp.csproj", "{EE68987A-E09B-4663-8942-1E7A8BF3EFD3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "gavilanch2-Programando-en-CSharp", "gavilanch2-Programando-en-CSharp\gavilanch2-Programando-en-CSharp.csproj", "{EE68987A-E09B-4663-8942-1E7A8BF3EFD3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary1", "ClassLibrary1\ClassLibrary1.csproj", "{89934CD1-AD6F-466E-8340-D96ED72C41F2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{EE68987A-E09B-4663-8942-1E7A8BF3EFD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE68987A-E09B-4663-8942-1E7A8BF3EFD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EE68987A-E09B-4663-8942-1E7A8BF3EFD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89934CD1-AD6F-466E-8340-D96ED72C41F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89934CD1-AD6F-466E-8340-D96ED72C41F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89934CD1-AD6F-466E-8340-D96ED72C41F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89934CD1-AD6F-466E-8340-D96ED72C41F2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
