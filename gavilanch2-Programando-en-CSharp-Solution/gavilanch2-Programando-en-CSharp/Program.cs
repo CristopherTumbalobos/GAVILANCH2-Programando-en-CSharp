@@ -11,37 +11,20 @@ namespace gavilanch2_Programando_en_CSharp
             double numero1 = 5;
             double numero2 = 7;
             double numero3 = 10;
-            double promedio = CalcularPromedio(numero1, numero2, numero3);
-
-
-            Console.Read();
+            double promedio = CalcularPromedio(4, 5, 6, 7, 3, 5, 7);
+            Console.WriteLine(promedio);
         }
 
-        //Sobrecarga: Varios métodos pueden tener el mismo nombre siempre y cuando sus valores de entrada sean diferentes
-
-        private static int CalcularPromedio(double numero1, double numero2, double numero3)
+        //int[]: Arreglo de enteros
+        private static double CalcularPromedio(params int[] numeros)
         {
-            throw new NotImplementedException();
-        }
-
-        private static double CalcularPromedio(double numero1, double numero2, double numero3)
-        {
-            throw new NotImplementedException();
-        }
-
-        //private static double CalcularPromedio(int numero1, int numero2)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        private static double CalcularPromedio(int numero1, int numero2)
-        {
-            return (numero1 + numero2) / 2.0;
-        }
-
-        private static double CalcularPromedio(double numero1, double numero2)
-        {
-            return (numero1 + numero2) / 2.0;
+            double suma = 0.0;
+            foreach (var numero in numeros)
+            {
+                //suma = suma + numero;
+                suma += numero;
+            }
+            return suma / numeros.Length;
         }
     }
 }
