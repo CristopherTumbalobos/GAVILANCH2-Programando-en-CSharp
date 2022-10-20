@@ -8,63 +8,66 @@ namespace gavilanch2_Programando_en_CSharp
     {
         static void Main(string[] args)
         {
-            //Lista que maneje ambos animales
-            //Herencia: Ambas clases provienen de un mismo tipo
-            List<Animal> animales = new List<Animal>();
-            //Polimorfismo: Nos permite utilizar clases derivadas en lugar de la clase base
-            animales.Add(new Vaca("Roberto"));
-            animales.Add(new Oveja("Mario"));
+            Animal perro = new Perro();
+            Animal gato = new Gato();
+            Animal pelicano = new Pelicano();
+            Animal gusano = new Gusano();
 
-            foreach (var animal in animales)
-            {
-                animal.HacerRuido();
-            }
+            //Polimorfismo por Herencia
+            AnimalHacerRuido(perro);
+            AnimalHacerRuido(gato);
+            AnimalHacerRuido(pelicano);
+            AnimalHacerRuido(gusano);
 
             Console.Read();
+        }
+
+        //Metodo que recibe una clase base y podemos pasarle clases derivadas
+        public static void AnimalHacerRuido(Animal animal)
+        {
+            animal.HacerRuido();
         }
     }
 
     class Animal
     {
-        //Propiedad
-        public string Nombre { get; set; }
-
-        //virtual: Las clases hijos pueden sobrescribir el metodo virtual
         public virtual void HacerRuido()
         {
-            Console.WriteLine("{0} hace ruido", Nombre);
+            Console.WriteLine("Ruido Genérico");
         }
     }
 
-    class Vaca : Animal
+    class Perro : Animal
     {
-        public Vaca(string nombre)
-        {
-            Nombre = nombre;
-        }
-        //override: Sobreescribir método "HacerRuido"
         public override void HacerRuido()
         {
-            Console.WriteLine("{0} dice muuu", Nombre);
+            Console.WriteLine("Woof");
         }
-        public void Limpiar()
+        public void ElBaile()
         {
-            Console.WriteLine("La vaca {0} ha sido limpiada", Nombre);
+            Console.WriteLine("Del perrito");
         }
     }
-    class Oveja : Animal
+
+    class Gato : Animal
     {
-        public Oveja(string nombre)
+        public override void HacerRuido()
         {
-            Nombre = nombre;
+            Console.WriteLine("Miau");
         }
-        //public void HacerRuido()
-        //{
-        //    Console.WriteLine("{0} dice veeeh", Nombre);
-        //}
-        public void Limpiar()
+    }
+
+    class Pelicano : Animal
+    {
+        public override void HacerRuido()
         {
-            Console.WriteLine("La oveja {0} ha sido trasquilada", Nombre);
+            //base: Utilizar el método base, de la clase padre
+            base.HacerRuido();
         }
+    }
+
+    class Gusano : Animal
+    {
+
     }
 }
