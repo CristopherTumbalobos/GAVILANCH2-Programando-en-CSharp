@@ -8,26 +8,9 @@ namespace gavilanch2_Programando_en_CSharp
     {
         static void Main(string[] args)
         {
-            //Object: Todos los tipos de C# heredan de objeto
-            Object o = DateTime.Today;
-
-            if (o is DateTime)
-            {
-                //Casteando el objeto "o"
-                var fecha = (DateTime)o;
-            }
-            else if (o is string)
-            {
-                //Casteando el objeto "o"
-                var unString = (string)o;
-            }
-
+            //PRAGMATISMO: Hacer solo cosas que te aporten
+            //Patron de diseño: Solución general reutilizable a un problema recurrente en un contexto determinado.
             Console.Read();
-        }
-
-        public static void ToStringObject(object obj)
-        {
-            Console.WriteLine(obj.ToString());
         }
     }
 }
