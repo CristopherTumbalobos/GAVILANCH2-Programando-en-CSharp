@@ -13,7 +13,6 @@ namespace gavilanch2_Programando_en_CSharp
             Animal pelicano = new Pelicano();
             Animal gusano = new Gusano();
 
-            //Polimorfismo por Herencia
             AnimalHacerRuido(perro);
             AnimalHacerRuido(gato);
             AnimalHacerRuido(pelicano);
@@ -22,18 +21,28 @@ namespace gavilanch2_Programando_en_CSharp
             Console.Read();
         }
 
-        //Metodo que recibe una clase base y podemos pasarle clases derivadas
         public static void AnimalHacerRuido(Animal animal)
         {
             animal.HacerRuido();
         }
     }
 
+    //PUBLIC: Usado por cualquiera que tuviese acceso a la clase que pertenece
+    //PRIVATE: Usado solo por los miembros (propiedades, metodos, etc) del mismo tipo (struct o clase)
+    //PROTECTED: Usado solo para los herederos o clases derivadas
+    //INTERNAL: Usado solo para los que están en el mismo proyecto o assembly
+
+
     class Animal
     {
         public virtual void HacerRuido()
         {
+            //Program.AnimalHacerRuido(this);
             Console.WriteLine("Ruido Genérico");
+        }
+        protected void MetodoProtegido()
+        {
+
         }
     }
 
@@ -42,6 +51,7 @@ namespace gavilanch2_Programando_en_CSharp
         public override void HacerRuido()
         {
             Console.WriteLine("Woof");
+            MetodoProtegido();
         }
         public void ElBaile()
         {
@@ -61,7 +71,6 @@ namespace gavilanch2_Programando_en_CSharp
     {
         public override void HacerRuido()
         {
-            //base: Utilizar el método base, de la clase padre
             base.HacerRuido();
         }
     }
