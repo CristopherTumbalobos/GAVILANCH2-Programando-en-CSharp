@@ -8,75 +8,47 @@ namespace gavilanch2_Programando_en_CSharp
     {
         static void Main(string[] args)
         {
-            Animal perro = new Perro();
-            Animal gato = new Gato();
-            Animal pelicano = new Pelicano();
-            Animal gusano = new Gusano();
-
-            AnimalHacerRuido(perro);
-            AnimalHacerRuido(gato);
-            AnimalHacerRuido(pelicano);
-            AnimalHacerRuido(gusano);
+            var miniMensaje = new EnviarMiniMensaje();
+            var enviarCorreo = new EnviarCorreo();
+            Enviar(miniMensaje, "prueba");
+            Enviar(enviarCorreo, "prueba2");
 
             Console.Read();
         }
 
-        public static void AnimalHacerRuido(Animal animal)
+        public static void Enviar(IEnviadorMensaje mensajero, string mensaje)
         {
-            animal.HacerRuido();
+            mensajero.EnviarMensaje(mensaje);
         }
     }
 
-    //PUBLIC: Usado por cualquiera que tuviese acceso a la clase que pertenece
-    //PRIVATE: Usado solo por los miembros (propiedades, metodos, etc) del mismo tipo (struct o clase)
-    //PROTECTED: Usado solo para los herederos o clases derivadas
-    //INTERNAL: Usado solo para los que están en el mismo proyecto o assembly
-
-
-    class Animal
+    //Interface: Podemos usarlas para polimorfismo
+    interface IEnviadorMensaje
     {
-        public virtual void HacerRuido()
-        {
-            //Program.AnimalHacerRuido(this);
-            Console.WriteLine("Ruido Genérico");
-        }
-        protected void MetodoProtegido()
-        {
+        //Método dentro de la interfaz
+        void EnviarMensaje(string mensaje);
+    }
 
+    class EnviarMiniMensaje : IEnviadorMensaje
+    {
+        //Implementando el método de la interfaz
+        public void EnviarMensaje(string mensaje)
+        {
+            Console.WriteLine("Enviando minimensaje");
+        }
+        public string CualquierMetodo()
+        {
+            return "Lo que sea";
         }
     }
 
-    class Perro : Animal
+    class EnviarCorreo : IEnviadorMensaje
     {
-        public override void HacerRuido()
-        {
-            Console.WriteLine("Woof");
-            MetodoProtegido();
-        }
-        public void ElBaile()
-        {
-            Console.WriteLine("Del perrito");
-        }
-    }
+        //Implementando el método de la interfaz
 
-    class Gato : Animal
-    {
-        public override void HacerRuido()
+        public void EnviarMensaje(string mensaje)
         {
-            Console.WriteLine("Miau");
+            Console.WriteLine("Enviando correo");
         }
-    }
-
-    class Pelicano : Animal
-    {
-        public override void HacerRuido()
-        {
-            base.HacerRuido();
-        }
-    }
-
-    class Gusano : Animal
-    {
-
     }
 }
