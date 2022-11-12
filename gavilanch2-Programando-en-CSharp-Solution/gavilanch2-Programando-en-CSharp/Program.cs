@@ -9,21 +9,56 @@ namespace gavilanch2_Programando_en_CSharp
 {
     class Program
     {
-        const double PI = 3.14; //Necesita tener el valor en su declaracion
-        static readonly double PI_2 = RepositorioDeValores.PI; // RECOMENDADO: Lo puede leer de un repositorio
-
         static void Main(string[] args)
         {
-            var edad = 9;
-            edad = 8;
-            edad = 125;
+            var persona = new Persona() { Nombre = "Felipe" };
+
+            //Tipo de referencia
+            Console.WriteLine("--Tipo de referencia--");
+            Console.WriteLine("Previo al cambio");
+            Console.WriteLine(persona.Nombre);
+            EditarPersona(persona, "Roberto");
+            Console.WriteLine("Despues del cambio");
+            Console.WriteLine(persona.Nombre);
+
+            Console.WriteLine("");
+
+            //Tipo de valor
+            //Almacena directamente el valor
+            Console.WriteLine("--Tipo de valor--");
+            Console.WriteLine("Previo al cambio");
+            int edad = 9;
+            Console.WriteLine(edad);
+            //ref: Permite pasar un valor como una referencia
+            EditarEdad(ref edad, 14);
+            //EditarEdad(out edad, 14);
+            //OUT: Obliga asignarle un valor a las variables marcadas con out
+            //REF: No obliga declararle un valor a la variables marcadas con ref
+            //EditarEdad(out edad, 14);
+            Console.WriteLine("Despues del cambio");
+            Console.WriteLine(edad);
 
             Console.Read();
         }
+
+        static void EditarPersona(Persona persona, string nuevoNombre)
+        {
+            persona.Nombre = nuevoNombre;
+        }
+
+        static void EditarEdad(ref int edadActual, int nuevaEdad)
+        {
+            edadActual = nuevaEdad;
+        }
+
+        //static void EditarEdad(out int edadActual, int nuevaEdad)
+        //{
+        //    edadActual = nuevaEdad;
+        //}
     }
 
-    public static class RepositorioDeValores
+    class Persona
     {
-        public static double PI = 3.1415;
+        public string Nombre { get; set; }
     }
 }
