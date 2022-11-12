@@ -6,72 +6,30 @@ namespace gavilanch2_Programando_en_CSharp
 {
     class Program
     {
-        //Factoria: Metodo que devuelve la implementación de un interfaz. Permite reducir responsabilidades al método main.
-
         static void Main(string[] args)
         {
-            var enviadorMensajeDependencia = FactoriaEnviadorMensaje.Factoria("sms");
-            var enviadorMensaje = new EnviadorMensaje(enviadorMensajeDependencia);
-            enviadorMensaje.EnviarMensaje("un mensaje");
+            //Tipos anonimos
+            var animalito1 = new { animal = "perro", nombre = "Roberto", vidas = 1 };
+            var animalito2 = new { animal = "gato", nombre = "Alex", vidas = 7 };
+
+            //Dynamic: Permite crear un lista de anonimos. Es lento comparado a otras estructuras. Por lo general, evitar su uso.
+            List<dynamic> animalitos = new List<dynamic>();
+
+            animalitos.Add(animalito1);
+            animalitos.Add(animalito2);
+
+            foreach (dynamic animalito in animalitos)
+            {
+                Console.WriteLine("El {0} de nombre {1} tiene {2} vidas", animalito.animal, animalito.nombre, animalito.vidas);
+            }
 
             Console.Read();
         }
     }
 
-    public static class FactoriaEnviadorMensaje
+    class Persona
     {
-        public static IEnviadorMensaje Factoria(string parametro)
-        {
-            if (parametro == "sms")
-            {
-                return new EnviarMiniMensaje();
-            }
-            else if (parametro == "correo")
-            {
-                return new EnviarCorreo();
-            }
-
-            throw new ApplicationException();
-        }
-    }
-    public class EnviadorMensaje
-    {
-        public EnviadorMensaje()
-        {
-            _enviadorMensaje = new EnviarCorreo();
-        }
-
-        public EnviadorMensaje(IEnviadorMensaje enviadorMensaje)
-        {
-            _enviadorMensaje = enviadorMensaje;
-        }
-
-        public IEnviadorMensaje ImplementacionEnviadorMensaje { get; set; }
-
-        private IEnviadorMensaje _enviadorMensaje;
-
-        public void EnviarMensaje(string mensaje)
-        {
-            ImplementacionEnviadorMensaje.EnviarMensaje(mensaje);
-        }
-    }
-
-    public interface IEnviadorMensaje
-    {
-        void EnviarMensaje(string mensaje);
-    }
-    class EnviarMiniMensaje : IEnviadorMensaje
-    {
-        public void EnviarMensaje(string mensaje)
-        {
-            Console.WriteLine("Enviando minimensaje");
-        }
-    }
-    class EnviarCorreo : IEnviadorMensaje
-    {
-        public void EnviarMensaje(string mensaje)
-        {
-            Console.WriteLine("Enviando correo");
-        }
+        public string Nombre { get; set; }
+        public int Edad { get; set; }
     }
 }
