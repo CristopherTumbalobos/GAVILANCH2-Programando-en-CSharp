@@ -9,39 +9,79 @@ namespace gavilanch2_Programando_en_CSharp
 {
     class Program
     {
-        //Genéricos: Los genéricos nos sirven para parametrizar uno o varios tipos que usaremos dentro de un método, clase, interfaz, etc.
-        static void Main(string[] args)
+        public static void ejemplo()
         {
-            //Lista de tipo de valor
-            List<int> numeros = new List<int>() { 1, 2, 3, 4, 5 };
-            numeros.Add(6);
+            Animal perro = new Perro();
+            Animal gato = new Gato();
+            Animal pelicano = new Pelicano();
+            Animal gusano = new Gusano();
 
-            //Lista de tipo de referencia
-            List<Persona> personas = new List<Persona>()
-            {
-                new Persona () {Nombre = "Felipe"},
-                new Persona () {Nombre = "Carla"}
-            };
+            AnimalHacerRuido(perro);
+            AnimalHacerRuido(gato);
+            AnimalHacerRuido(pelicano);
+            AnimalHacerRuido(gusano);
         }
 
-        private int Duplicar(int valor)
+        private static void AnimalHacerRuido(Animal animal)
         {
-            return valor * 2;
-        }
-
-        private double Duplicar(double valor)
-        {
-            return valor * 2;
+            animal.HacerRuido();
         }
     }
 
-    class Persona
+    class GoldenRetriever : Perro
     {
-        public string Nombre { get; set; }
+
     }
 
-    class Empresa
+    abstract class Animal
+    //ABSTRACTA: No podemos instanciarla a sí misma, pero si podemos heredar de ella
     {
-        public string Direccion { get; set; }
+        public virtual void HacerRuido()
+        {
+            Console.WriteLine("Ruido Genérico");
+        }
+        protected void MetodoProtegido()
+        {
+
+        }
+    }
+
+    class Perro : Animal
+    {
+        public override void HacerRuido()
+        {
+            Console.WriteLine("Woof");
+            MetodoProtegido();
+        }
+        public void ElBaile()
+        {
+            Console.WriteLine("Del Perrito");
+        }
+    }
+
+    class Gato : Animal
+    {
+        public override void HacerRuido()
+        {
+            Console.WriteLine("Miau");
+        }
+    }
+
+    class Pelicano : Animal
+    {
+        public override void HacerRuido()
+        {
+            base.HacerRuido();
+        }
+    }
+
+    sealed class Gusano : Animal
+    {
+        //SELLADA: No podemos heredar de ella, pero si podemos instanciarla
+    }
+
+    class Gusanito : Gusano
+    {
+
     }
 }
