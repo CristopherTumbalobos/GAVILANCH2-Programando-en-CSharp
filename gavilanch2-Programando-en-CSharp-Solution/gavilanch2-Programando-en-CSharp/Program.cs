@@ -9,79 +9,31 @@ namespace gavilanch2_Programando_en_CSharp
 {
     class Program
     {
-        public static void ejemplo()
+        static void Main(string[] args)
         {
-            Animal perro = new Perro();
-            Animal gato = new Gato();
-            Animal pelicano = new Pelicano();
-            Animal gusano = new Gusano();
+            MiColeccion<decimal, string> miColeccion = new MiColeccion<decimal, string>();
+            miColeccion.Agregar(20);
+            miColeccion.Agregar("Felipe");
 
-            AnimalHacerRuido(perro);
-            AnimalHacerRuido(gato);
-            AnimalHacerRuido(pelicano);
-            AnimalHacerRuido(gusano);
-        }
-
-        private static void AnimalHacerRuido(Animal animal)
-        {
-            animal.HacerRuido();
+            Console.Read();
         }
     }
 
-    class GoldenRetriever : Perro
+    class MiColeccion<T, M>
     {
+        public List<T> MiLista { get; set; }
 
-    }
-
-    abstract class Animal
-    //ABSTRACTA: No podemos instanciarla a sí misma, pero si podemos heredar de ella
-    {
-        public virtual void HacerRuido()
+        public MiColeccion()
         {
-            Console.WriteLine("Ruido Genérico");
+            MiLista = new List<T>();
         }
-        protected void MetodoProtegido()
+        public void Agregar(T valor)
         {
-
+            MiLista.Add(valor);
         }
-    }
-
-    class Perro : Animal
-    {
-        public override void HacerRuido()
+        public void Agregar(M valor)
         {
-            Console.WriteLine("Woof");
-            MetodoProtegido();
+            //...
         }
-        public void ElBaile()
-        {
-            Console.WriteLine("Del Perrito");
-        }
-    }
-
-    class Gato : Animal
-    {
-        public override void HacerRuido()
-        {
-            Console.WriteLine("Miau");
-        }
-    }
-
-    class Pelicano : Animal
-    {
-        public override void HacerRuido()
-        {
-            base.HacerRuido();
-        }
-    }
-
-    sealed class Gusano : Animal
-    {
-        //SELLADA: No podemos heredar de ella, pero si podemos instanciarla
-    }
-
-    class Gusanito : Gusano
-    {
-
     }
 }
