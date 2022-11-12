@@ -4,32 +4,76 @@ using Operaciones;
 
 namespace gavilanch2_Programando_en_CSharp
 {
+    //Abstract: Aquella que no podemos instanciar
     class Program
     {
         static void Main(string[] args)
         {
-            //Tipos anonimos
-            var animalito1 = new { animal = "perro", nombre = "Roberto", vidas = 1 };
-            var animalito2 = new { animal = "gato", nombre = "Alex", vidas = 7 };
+            Animal perro = new Perro();
+            Animal gato = new Gato();
+            Animal pelicano = new Pelicano();
+            Animal gusano = new Gusano();
 
-            //Dynamic: Permite crear un lista de anonimos. Es lento comparado a otras estructuras. Por lo general, evitar su uso.
-            List<dynamic> animalitos = new List<dynamic>();
+            Animal animal = new Animal();
 
-            animalitos.Add(animalito1);
-            animalitos.Add(animalito2);
-
-            foreach (dynamic animalito in animalitos)
-            {
-                Console.WriteLine("El {0} de nombre {1} tiene {2} vidas", animalito.animal, animalito.nombre, animalito.vidas);
-            }
+            AnimalHacerRuido(perro);
+            AnimalHacerRuido(gato);
+            AnimalHacerRuido(pelicano);
+            AnimalHacerRuido(gusano);
 
             Console.Read();
         }
+
+        private static void AnimalHacerRuido(Animal animal)
+        {
+            animal.HacerRuido();
+        }
     }
 
-    class Persona
+    abstract class Animal
     {
-        public string Nombre { get; set; }
-        public int Edad { get; set; }
+        public virtual void HacerRuido()
+        {
+            Console.WriteLine("Ruido Generico");
+        }
+        protected void MetodoProtegido()
+        {
+
+        }
+    }
+
+    class Perro : Animal
+    {
+        public override void HacerRuido()
+        {
+            Console.WriteLine("Woof");
+            MetodoProtegido();
+        }
+        public void ElBaile()
+        {
+            Console.WriteLine("Del Perrito");
+        }
+    }
+
+    class Gato : Animal
+    {
+        public override void HacerRuido()
+        {
+            Console.WriteLine("Miau");
+            MetodoProtegido();
+        }
+    }
+
+    class Pelicano : Animal
+    {
+        public override void HacerRuido()
+        {
+            base.HacerRuido();
+        }
+    }
+
+    class Gusano : Animal
+    {
+
     }
 }
