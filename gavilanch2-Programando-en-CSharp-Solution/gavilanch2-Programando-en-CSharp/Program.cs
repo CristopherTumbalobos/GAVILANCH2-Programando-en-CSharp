@@ -11,29 +11,62 @@ namespace gavilanch2_Programando_en_CSharp
     {
         static void Main(string[] args)
         {
-            MiColeccion<decimal, string> miColeccion = new MiColeccion<decimal, string>();
-            miColeccion.Agregar(20);
-            miColeccion.Agregar("Felipe");
+            var miDobleColeccion = FactoriaMiDobleColeccion<string, int>(1);
+            miDobleColeccion.Agregar("Felipe", 7);
 
             Console.Read();
         }
+
+        //Factoria: Metodo que devuelve un clase que implemente el interfaz
+        static IMiDobleColeccion<T, M> FactoriaMiDobleColeccion<T, M>(int discriminante)
+        {
+            if (discriminante == 1)
+            {
+                return new MiDobleColeccion<T, M>();
+            }
+            else if (discriminante == 2)
+            {
+                return new MiDobleColeccionDiccionario<T, M>();
+            }
+            throw new NotImplementedException();
+        }
     }
 
-    class MiColeccion<T, M>
+    //Interfaz genérica
+    interface IMiDobleColeccion<T, M>
     {
-        public List<T> MiLista { get; set; }
+        void Agregar(T valorT, M valorM);
+    }
 
-        public MiColeccion()
+    class MiDobleColeccion<T, M> : IMiDobleColeccion<T, M>
+    {
+        public List<T> MiListadeT { get; set; }
+        public List<M> MiListadeM { get; set; }
+
+        //public void Agregar(T valorT, M valorM)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        public MiDobleColeccion()
         {
-            MiLista = new List<T>();
+            MiListadeT = new List<T>();
+            MiListadeM = new List<M>();
         }
-        public void Agregar(T valor)
+
+        public void Agregar(T valorT, M valorM)
         {
-            MiLista.Add(valor);
+            MiListadeT.Add(valorT);
+            MiListadeM.Add(valorM);
         }
-        public void Agregar(M valor)
+    }
+
+    class MiDobleColeccionDiccionario<T, M> : IMiDobleColeccion<T, M>
+    {
+        public Dictionary<T, M> MiDictionary { get; set; }
+        public void Agregar(T valorT, M valorM)
         {
-            //...
+            //
         }
     }
 }
