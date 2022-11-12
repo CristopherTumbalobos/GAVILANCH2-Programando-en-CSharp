@@ -6,53 +6,54 @@ namespace gavilanch2_Programando_en_CSharp
 {
     class Program
     {
+        //Factoria: Metodo que devuelve la implementación de un interfaz. Permite reducir responsabilidades al método main.
+
         static void Main(string[] args)
         {
-            //Inyeccion de dependencia: Sirve para desacoplar nuestras clases y ahorrar codigo. Nos dá flexibilidad a la hora de escoger las dependencia de nuestra clase
-
-            //INYECCION DE DEPENDENCIA POR CONSTRUCTOR
-
-            var enviadorSMS = new EnviarMiniMensaje();
-            var enviadorMensaje = new EnviadorMensaje(enviadorSMS);//(enviadorSMS): Dependencia
+            var enviadorMensajeDependencia = FactoriaEnviadorMensaje.Factoria("sms");
+            var enviadorMensaje = new EnviadorMensaje(enviadorMensajeDependencia);
             enviadorMensaje.EnviarMensaje("un mensaje");
-
-            //INYECCION DE DEPENDENCIA MEDIANTE PROPIEDAD
-
-            //var enviadorSMS = new EnviarMiniMensaje();
-            //var enviadorMensaje = new EnviadorMensaje();
-            //enviadorMensaje.ImplementacionEnviadorMensaje = enviadorSMS;
-            //enviadorMensaje.EnviarMensaje("un mensaje");
 
             Console.Read();
         }
     }
 
+    public static class FactoriaEnviadorMensaje
+    {
+        public static IEnviadorMensaje Factoria(string parametro)
+        {
+            if (parametro == "sms")
+            {
+                return new EnviarMiniMensaje();
+            }
+            else if (parametro == "correo")
+            {
+                return new EnviarCorreo();
+            }
+
+            throw new ApplicationException();
+        }
+    }
     public class EnviadorMensaje
     {
-        //INYECCION DE DEPENDENCIA POR CONSTRUCTOR
+        public EnviadorMensaje()
+        {
+            _enviadorMensaje = new EnviarCorreo();
+        }
 
         public EnviadorMensaje(IEnviadorMensaje enviadorMensaje)
         {
             _enviadorMensaje = enviadorMensaje;
         }
 
+        public IEnviadorMensaje ImplementacionEnviadorMensaje { get; set; }
+
         private IEnviadorMensaje _enviadorMensaje;
 
         public void EnviarMensaje(string mensaje)
         {
-            _enviadorMensaje.EnviarMensaje(mensaje);
+            ImplementacionEnviadorMensaje.EnviarMensaje(mensaje);
         }
-
-        //INYECCION DE DEPENDENCIA MEDIANTE PROPIEDAD
-
-        //public IEnviadorMensaje ImplementacionEnviadorMensaje { get; set; }
-
-        //private IEnviadorMensaje _enviadorMensaje;
-
-        //public void EnviarMensaje(string mensaje)
-        //{
-        //    ImplementacionEnviadorMensaje.EnviarMensaje(mensaje);
-        //}
     }
 
     public interface IEnviadorMensaje
