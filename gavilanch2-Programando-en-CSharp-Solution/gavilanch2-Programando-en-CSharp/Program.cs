@@ -7,41 +7,23 @@ using Operaciones;
 
 namespace gavilanch2_Programando_en_CSharp
 {
-    //Generico(T): Permite asignar cualquier tipo
     class Program
     {
+        const double PI = 3.14; //Necesita tener el valor en su declaracion
+        static readonly double PI_2 = RepositorioDeValores.PI; // RECOMENDADO: Lo puede leer de un repositorio
+
         static void Main(string[] args)
         {
-            var persona1 = new Persona() { Nombre = "Felipe" };
-            var xml_persona1 = Serializar<Persona>(persona1);
+            var edad = 9;
+            edad = 8;
+            edad = 125;
 
-            var persona2 = new Persona() { Nombre = "Carla" };
-            var xml_persona2 = Serializar<Persona>(persona2);
-
-            var empresa1 = new Empresa() { Direccion = "Avenida Siempreviva 123" };
-            var xml_empresa1 = Serializar<Empresa>(empresa1);
-        }
-
-        private static string Serializar<T>(T valor)
-        {
-            var serializador = new XmlSerializer(typeof(T));
-            using (var escritorString = new StringWriter())
-            {
-                using (var escritor = XmlWriter.Create(escritorString))
-                {
-                    serializador.Serialize(escritor, valor);
-                    return escritorString.ToString();
-                }
-            }
+            Console.Read();
         }
     }
 
-    public class Persona
+    public static class RepositorioDeValores
     {
-        public string Nombre { get; set; }
-    }
-    public class Empresa
-    {
-        public string Direccion { get; set; }
+        public static double PI = 3.1415;
     }
 }
