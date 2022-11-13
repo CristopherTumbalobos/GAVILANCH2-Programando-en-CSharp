@@ -9,64 +9,55 @@ namespace gavilanch2_Programando_en_CSharp
 {
     class Program
     {
+        //Podemos aplicar una o varias restricciones a un genérico, separandolas por coma
         static void Main(string[] args)
         {
-            var miDobleColeccion = FactoriaMiDobleColeccion<string, int>(1);
-            miDobleColeccion.Agregar("Felipe", 7);
-
-            Console.Read();
+            Generico_struct<int>(5);
+            Generico_class<Perro>();
+            Generico_Herencias<Gato>(new Gato());
         }
 
-        //Factoria: Metodo que devuelve un clase que implemente el interfaz
-        static IMiDobleColeccion<T, M> FactoriaMiDobleColeccion<T, M>(int discriminante)
+        static void Generico_struct<T>(T valor) where T : struct
         {
-            if (discriminante == 1)
+
+        }
+        static M Generico_class<M>() where M : class, new()
+        {
+            return new M();
+        }
+        static void Generico_interface<T>(T implementacion) where T : IEnumerable<T>
+        {
+            foreach (T item in implementacion)
             {
-                return new MiDobleColeccion<T, M>();
+
             }
-            else if (discriminante == 2)
-            {
-                return new MiDobleColeccionDiccionario<T, M>();
-            }
-            throw new NotImplementedException();
+        }
+        static C Generico_Constructor<C>() where C : new()
+        {
+            return new C();
+        }
+        static void Generico_Herencias<A>(A animal) where A : Animal
+        {
+            animal.HacerRuido();
         }
     }
 
-    //Interfaz genérica
-    interface IMiDobleColeccion<T, M>
+    abstract class Animal
     {
-        void Agregar(T valorT, M valorM);
+        public abstract void HacerRuido();
     }
-
-    class MiDobleColeccion<T, M> : IMiDobleColeccion<T, M>
+    class Perro : Animal
     {
-        public List<T> MiListadeT { get; set; }
-        public List<M> MiListadeM { get; set; }
-
-        //public void Agregar(T valorT, M valorM)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        public MiDobleColeccion()
+        public override void HacerRuido()
         {
-            MiListadeT = new List<T>();
-            MiListadeM = new List<M>();
-        }
-
-        public void Agregar(T valorT, M valorM)
-        {
-            MiListadeT.Add(valorT);
-            MiListadeM.Add(valorM);
+            Console.WriteLine("Woof");
         }
     }
-
-    class MiDobleColeccionDiccionario<T, M> : IMiDobleColeccion<T, M>
+    class Gato : Animal
     {
-        public Dictionary<T, M> MiDictionary { get; set; }
-        public void Agregar(T valorT, M valorM)
+        public override void HacerRuido()
         {
-            //
+            Console.WriteLine("Miau");
         }
     }
 }
