@@ -11,31 +11,39 @@ namespace gavilanch2_Programando_en_CSharp
     {
         static void Main(string[] args)
         {
-            List<string> nombres = new List<string>();
-            nombres.Add("Felipe");
-            nombres.Add("Mario");
-            nombres.Add("Carlos");
+            //Dos elementos del diccionario no pueden tener la misma llave (llave - valor)
+            Dictionary<string, int> NombreEdad = new Dictionary<string, int>();
+            NombreEdad.Add("Felipe", 85);
+            NombreEdad.Add("Roberto", 40);
+            NombreEdad.Add("Maria", 40);
 
-            //Inicializando lista con algunos elementos
-            List<int> numeros = new List<int>() { 1, 5, 7, 8, -3, 6, 2, 4, 6 };
-            numeros.Add(0);
+            Console.WriteLine(NombreEdad["Roberto"]);
 
-            //Remover elemento
-            numeros.Remove(8);
-            //Remover el numero asociado a un index (indice)
-            numeros.RemoveAt(2);
+            //Consulta si existe la llave "blablabla"
+            if (NombreEdad.ContainsKey("blablabla"))
+            {
+                Console.WriteLine(NombreEdad["blablabla"]);
+            }
 
-            //Remover el último elemento
-            numeros.RemoveAt(numeros.Count - 1);
+            //Remover elemento de un diccionario
+            NombreEdad.Remove("Roberto");
 
-            //Insertar elemento a un index determinado
-            numeros.Insert(0, 100);
-            numeros.Insert(4, -100);
+            //Dictionary<int, Persona> personas = new Dictionary<int, Persona>();
+            //personas.Add(1, );
 
-            var primerElementoDeLaLista = numeros[0];
-            var ultimoElementoDeLaLista = numeros[numeros.Count - 1];
-            //numeros.Clear();
+            foreach (var keys in NombreEdad.Keys)
+            {
+                Console.WriteLine(keys);
+            }
+
+
             Console.Read();
         }
+    }
+
+    class Persona
+    {
+        public int MyProperty { get; set; }
+        public int MyProperty2 { get; set; }
     }
 }
