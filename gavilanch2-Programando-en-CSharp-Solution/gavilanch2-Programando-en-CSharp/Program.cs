@@ -9,41 +9,44 @@ namespace gavilanch2_Programando_en_CSharp
 {
     class Program
     {
+        //FIFO: Similar a la FILA de un banco
         static void Main(string[] args)
         {
-            //Dos elementos del diccionario no pueden tener la misma llave (llave - valor)
-            Dictionary<string, int> NombreEdad = new Dictionary<string, int>();
-            NombreEdad.Add("Felipe", 85);
-            NombreEdad.Add("Roberto", 40);
-            NombreEdad.Add("Maria", 40);
+            Queue<string> queue = new Queue<string>();
 
-            Console.WriteLine(NombreEdad["Roberto"]);
+            Console.Write("Primer elemento insertado: ");
+            Console.WriteLine("Primero");
+            queue.Enqueue("Primero");
 
-            //Consulta si existe la llave "blablabla"
-            if (NombreEdad.ContainsKey("blablabla"))
+            Console.Write("Segundo elemento insertado: ");
+            Console.WriteLine("Segundo");
+            queue.Enqueue("Segundo");
+
+            Console.Write("Tercer elemento insertado: ");
+            Console.WriteLine("Tercero");
+            queue.Enqueue("Tercero");
+
+            //Podemos iterar el queue para leer su contenido
+            foreach (var item in queue)
             {
-                Console.WriteLine(NombreEdad["blablabla"]);
+                Console.WriteLine(item);
             }
 
-            //Remover elemento de un diccionario
-            NombreEdad.Remove("Roberto");
+            Console.WriteLine();
 
-            //Dictionary<int, Persona> personas = new Dictionary<int, Persona>();
-            //personas.Add(1, );
+            Console.Write("Primer elemento extraído: ");
+            var primerElementoRemovido = queue.Dequeue();
+            Console.WriteLine(primerElementoRemovido);
 
-            foreach (var keys in NombreEdad.Keys)
-            {
-                Console.WriteLine(keys);
-            }
+            Console.Write("Segundo elemento extraído: ");
+            Console.WriteLine(queue.Dequeue());
 
+            Console.Write("Tercer elemento extraído: ");
+            Console.WriteLine(queue.Dequeue());
+
+            //El queue esta vacio en este momento
 
             Console.Read();
         }
-    }
-
-    class Persona
-    {
-        public int MyProperty { get; set; }
-        public int MyProperty2 { get; set; }
     }
 }
