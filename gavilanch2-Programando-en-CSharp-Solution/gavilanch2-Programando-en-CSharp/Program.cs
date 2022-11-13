@@ -9,55 +9,33 @@ namespace gavilanch2_Programando_en_CSharp
 {
     class Program
     {
-        //Podemos aplicar una o varias restricciones a un genérico, separandolas por coma
         static void Main(string[] args)
         {
-            Generico_struct<int>(5);
-            Generico_class<Perro>();
-            Generico_Herencias<Gato>(new Gato());
-        }
+            List<string> nombres = new List<string>();
+            nombres.Add("Felipe");
+            nombres.Add("Mario");
+            nombres.Add("Carlos");
 
-        static void Generico_struct<T>(T valor) where T : struct
-        {
+            //Inicializando lista con algunos elementos
+            List<int> numeros = new List<int>() { 1, 5, 7, 8, -3, 6, 2, 4, 6 };
+            numeros.Add(0);
 
-        }
-        static M Generico_class<M>() where M : class, new()
-        {
-            return new M();
-        }
-        static void Generico_interface<T>(T implementacion) where T : IEnumerable<T>
-        {
-            foreach (T item in implementacion)
-            {
+            //Remover elemento
+            numeros.Remove(8);
+            //Remover el numero asociado a un index (indice)
+            numeros.RemoveAt(2);
 
-            }
-        }
-        static C Generico_Constructor<C>() where C : new()
-        {
-            return new C();
-        }
-        static void Generico_Herencias<A>(A animal) where A : Animal
-        {
-            animal.HacerRuido();
-        }
-    }
+            //Remover el último elemento
+            numeros.RemoveAt(numeros.Count - 1);
 
-    abstract class Animal
-    {
-        public abstract void HacerRuido();
-    }
-    class Perro : Animal
-    {
-        public override void HacerRuido()
-        {
-            Console.WriteLine("Woof");
-        }
-    }
-    class Gato : Animal
-    {
-        public override void HacerRuido()
-        {
-            Console.WriteLine("Miau");
+            //Insertar elemento a un index determinado
+            numeros.Insert(0, 100);
+            numeros.Insert(4, -100);
+
+            var primerElementoDeLaLista = numeros[0];
+            var ultimoElementoDeLaLista = numeros[numeros.Count - 1];
+            //numeros.Clear();
+            Console.Read();
         }
     }
 }
