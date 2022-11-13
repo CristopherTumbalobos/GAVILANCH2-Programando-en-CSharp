@@ -9,43 +9,37 @@ namespace gavilanch2_Programando_en_CSharp
 {
     class Program
     {
-        //FIFO: Similar a la FILA de un banco
+        //LIFO: Similar al lavar platos
         static void Main(string[] args)
         {
-            Queue<string> queue = new Queue<string>();
+            Stack<string> stack = new Stack<string>();
 
             Console.Write("Primer elemento insertado: ");
-            Console.WriteLine("Primero");
-            queue.Enqueue("Primero");
+            Console.WriteLine("A");
+            stack.Push("A");
 
             Console.Write("Segundo elemento insertado: ");
-            Console.WriteLine("Segundo");
-            queue.Enqueue("Segundo");
+            Console.WriteLine("B");
+            stack.Push("B");
 
             Console.Write("Tercer elemento insertado: ");
-            Console.WriteLine("Tercero");
-            queue.Enqueue("Tercero");
+            Console.WriteLine("C");
+            stack.Push("C");
 
-            //Podemos iterar el queue para leer su contenido
-            foreach (var item in queue)
-            {
-                Console.WriteLine(item);
-            }
+            //Push: Insertar elemento al STACK
+            //Pop: Extraer elemento del STACK
 
-            Console.WriteLine();
-
-            Console.Write("Primer elemento extraído: ");
-            var primerElementoRemovido = queue.Dequeue();
+            Console.Write("Primer elemento extraido: ");
+            var primerElementoRemovido = stack.Pop();
             Console.WriteLine(primerElementoRemovido);
 
-            Console.Write("Segundo elemento extraído: ");
-            Console.WriteLine(queue.Dequeue());
+            Console.Write("Segundo elemento extraido: ");
+            Console.WriteLine(stack.Pop());
 
-            Console.Write("Tercer elemento extraído: ");
-            Console.WriteLine(queue.Dequeue());
+            Console.Write("Tercer elemento extraido: ");
+            Console.WriteLine(stack.Pop());
 
-            //El queue esta vacio en este momento
-
+            Console.WriteLine();
             Console.Read();
         }
     }
